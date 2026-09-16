@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract other-country theme</title>
+  <desc id="desc">A cool abstract mountain and moon composition.</desc>
+  <rect width="640" height="800" fill="#1c3557"/>
+  <circle cx="474" cy="184" r="84" fill="#b4d7ef"/>
+  <path d="M0 650 168 393l111 156 116-198 245 299v150H0z" fill="#4e8ca8"/>
+  <path d="M0 720c120-84 214-47 320-91 99-42 195-24 320 47v124H0z" fill="#173044"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">Abstract Spain theme</title>
+  <desc id="desc">A warm abstract sun and arch composition.</desc>
+  <rect width="640" height="800" fill="#f6c944"/>
+  <path d="M0 550C120 490 205 580 320 525s205-60 320-5v280H0z" fill="#c93e3e"/>
+  <circle cx="320" cy="285" r="130" fill="#ffed9a"/>
+  <path d="M130 630V370c0-86 70-156 156-156h68c86 0 156 70 156 156v260h-74V384c0-45-37-82-82-82h-68c-45 0-82 37-82 82v246z" fill="#163b56"/>
+</svg>

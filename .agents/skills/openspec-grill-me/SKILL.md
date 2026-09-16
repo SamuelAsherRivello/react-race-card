@@ -23,16 +23,20 @@ authorized. Never edit implementation code or start implementation.
 
 3. For an OpenSpec target, use `openspec list --json` and
    `openspec status --change "<name>" --json` as applicable.
-   Read the existing artifacts reported by the CLI.
-   Use the reported schema, paths, dependencies, and action context.
+   Read every existing artifact listed in
+   `artifactPaths.<id>.existingOutputPaths`, rather than assuming standard
+   names or locations. Use the reported schema, paths, dependencies,
+   `changeRoot`, and `actionContext`.
    Do not assume artifact names or invent unavailable CLI fields.
    If the CLI differs from these instructions, inspect its help.
 
 4. Read the resolved OpenSpec root's `config.yaml` or `config.yml`,
    when present. Apply its context and artifact rules as constraints.
 
-5. If the user selected a registered standalone store, preserve
-   `--store <id>` on commands that support it.
+5. If the user names a registered standalone store or the selected project
+   uses one, run `openspec store list --json` to resolve its ID. Keep
+   `--store <id>` on every later OpenSpec command that supports it; do not
+   fall back to an unscoped repository command partway through the interview.
 
 6. Where the repository uses `C###` and `C###-T###` identifiers,
    preserve them as stable identities. Display the change's ID and
@@ -46,6 +50,12 @@ Maintain a working list of:
 - Facts established from evidence.
 - Unconfirmed recommendations and assumptions.
 - Open or explicitly deferred decisions.
+
+Maintain a private decision tree from that list. Cover goals, users, scope,
+observable behavior, states, data, interfaces, integrations, failure modes,
+security and privacy, compatibility, migration, operations, testing,
+acceptance criteria, rollout, and non-goals as they apply. Do not force
+irrelevant branches into the interview.
 
 Explore relevant branches: goals, users, scope, behavior, states, data,
 interfaces, integrations, failures, security, compatibility, migration,
@@ -195,6 +205,10 @@ Show a concise shared-understanding summary. If budget remains and
 confirmation would resolve material uncertainty, use the mandatory
 question format and count it as a substantive question.
 
+If the completion test is satisfied without remaining material uncertainty,
+invite correction in the summary without treating silence as approval. Do not
+add that correction question after an exhausted question budget.
+
 If the budget is exhausted before the test passes, state that the interview
 is budget-limited and identify the unresolved decisions. Do not describe
 the plan as implementation-ready.
@@ -227,7 +241,9 @@ At completion or budget exhaustion:
 3. Preserve unresolved items as explicit open questions, assumptions,
    deferred work, or non-goals, as appropriate.
 4. For an existing change, follow `openspec-update-change` when available
-   and stay within the authorized artifact scope.
+   and stay within the authorized artifact scope. Re-read dependency artifacts
+   immediately before each authorized write because they may have changed
+   during the interview.
 5. If no change exists and proposal creation is authorized, follow
    `openspec-propose` when available. Do not fabricate decisions to complete
    required artifacts.

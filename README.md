@@ -4,13 +4,15 @@
 # Race Card
 
 <!-- AI: Update this project summary when the template is used. -->
-Race Card is an initial React and Vite project scaffold.
+Race Card is a React and Vite country-theme swipe-game MVP. Start a Spain
+round, classify ten tagged mock images with a swipe or button, and receive a
+percentage score. The MVP uses only local non-person placeholder artwork.
 
 ## Images
 
 ### Screenshots
 
-<a href="race-card/documentation/screenshot01.png"><img src="race-card/documentation/screenshot01.png" width="400" alt="Screenshot placeholder" /></a>
+<a href="race-card/documentation/screenshot01.png"><img src="race-card/documentation/screenshot01.png" width="400" alt="Spain round card screen" /></a>
 
 ## Live Demo
 
@@ -27,7 +29,7 @@ Race Card is an initial React and Vite project scaffold.
 ## Getting Started
 
 <!-- AI: Update this getting-started summary when the template is used. -->
-This is the getting started...
+The game runs entirely in the browser with a local, in-memory card dataset.
 
 ### 🛠 Build Project
 
@@ -52,8 +54,12 @@ This is the project details...
 
 ### 📝 Structure
 
-- `race-card/index.html` provides the plain safe-area HTML shell.
-- `race-card/test/` contains focused automated checks for the starter.
+- `race-card/index.html` provides the portrait safe-area HTML shell.
+- `race-card/src/spain-round.js` owns four-tag country data, balanced dealing,
+  and score calculation.
+- `race-card/public/images/mock/` contains temporary non-person artwork;
+  `race-card/public/images/real/` is reserved and unused by the MVP.
+- `race-card/test/` contains focused automated checks for round data and UI.
 - `race-card/documentation/` contains canonical README images and project
   documentation assets.
 

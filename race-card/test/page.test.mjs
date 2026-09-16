@@ -203,8 +203,17 @@ test("documents the plain safe-area template", async () => {
   if (!styles.includes("#portrait_frame {") || !styles.includes("aspect-ratio: 9 / 16;")) {
     throw new Error("The application frame must retain a 9:16 portrait aspect ratio.");
   }
-  if (!styles.includes("width: min(100vw, calc(100dvh * 9 / 16));") || !styles.includes("height: min(100dvh, calc(100vw * 16 / 9));")) {
-    throw new Error("The portrait frame must fit its 9:16 bounds within every viewport.");
+  if (!styles.includes("width: calc(100dvh * 9 / 16);") || !styles.includes("height: 100dvh;")) {
+    throw new Error("The portrait frame must use full viewport height and derive width from the 9:16 ratio.");
+  }
+  if (!styles.includes(".game_shell { height: 100%") || styles.includes(".game_shell { min-height: 100%")) {
+    throw new Error("The game shell must have a definite portrait-frame-relative height.");
+  }
+  if (!styles.includes(".game_header, .bottom_nav { flex: 0 0 auto;")) {
+    throw new Error("The header and footer must reserve space in the portrait-frame flex layout.");
+  }
+  if (!styles.includes(".round_content, .card_stack { min-height: 0;")) {
+    throw new Error("The card region must be shrinkable inside the height-bounded portrait frame.");
   }
   if (!styles.includes("left: 50%;") || !styles.includes("top: 50%;")) {
     throw new Error("The portrait frame must stay centered in the viewport.");
