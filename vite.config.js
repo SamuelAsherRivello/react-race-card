@@ -6,9 +6,9 @@ import { defineConfig } from "vite";
 const repositoryRoot = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  base: "/github-repository-template/",
+  base: "/react-race-card/",
   plugins: [react()],
-  root: "project-name",
+  root: "race-card",
   server: {
     fs: {
       allow: [repositoryRoot],

@@ -1,20 +1,20 @@
-<!-- AI: Keep commands rooted at the repository. The Vite application, source, tests, and build output belong in project-name/. -->
-![Samuel Asher Rivello](project-name/documentation/samuel-asher-rivello-banner.png)
+<!-- AI: Keep commands rooted at the repository. The Vite application, source, tests, and build output belong in race-card/. -->
+![Samuel Asher Rivello](race-card/documentation/samuel-asher-rivello-banner.png)
 
-# {project-name}
+# Race Card
 
 <!-- AI: Update this project summary when the template is used. -->
-This is the project repo....
+Race Card is an initial React and Vite project scaffold.
 
 ## Images
 
 ### Screenshots
 
-<a href="project-name/documentation/screenshot01.png"><img src="project-name/documentation/screenshot01.png" width="400" alt="Screenshot placeholder" /></a>
+<a href="race-card/documentation/screenshot01.png"><img src="race-card/documentation/screenshot01.png" width="400" alt="Screenshot placeholder" /></a>
 
 ## Live Demo
 
-- [{live-demo-url}](https://samuelasherrivello.github.io/github-repository-template/)
+- [Race Card](https://samuelasherrivello.github.io/react-race-card/)
 
 ## Table of Contents
 
@@ -52,9 +52,9 @@ This is the project details...
 
 ### 📝 Structure
 
-- `project-name/index.html` provides the plain safe-area HTML shell.
-- `project-name/test/` contains focused automated checks for the starter.
-- `project-name/documentation/` contains canonical README images and project
+- `race-card/index.html` provides the plain safe-area HTML shell.
+- `race-card/test/` contains focused automated checks for the starter.
+- `race-card/documentation/` contains canonical README images and project
   documentation assets.
 
 ### 📦 AI
