@@ -22,9 +22,20 @@ export function App() {
 
   useEffect(() => {
     const uiLayer = document.getElementById("ui_layer");
+    const portraitFrame = document.getElementById("portrait_frame");
     const syncUiMargin = () => {
-      uiLayer?.style.setProperty("--ui-margin-x", `${(uiMarginPixels / window.innerWidth) * 100}%`);
-      uiLayer?.style.setProperty("--ui-margin-y", `${(uiMarginPixels / window.innerHeight) * 100}%`);
+      if (!uiLayer || !portraitFrame) {
+        return;
+      }
+
+      uiLayer.style.setProperty(
+        "--ui-margin-x",
+        `${(uiMarginPixels / portraitFrame.clientWidth) * 100}%`,
+      );
+      uiLayer.style.setProperty(
+        "--ui-margin-y",
+        `${(uiMarginPixels / portraitFrame.clientHeight) * 100}%`,
+      );
     };
 
     syncUiMargin();

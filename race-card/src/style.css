@@ -2,10 +2,29 @@ html,
 body {
   height: 100%;
   margin: 0;
+  overflow: hidden;
+}
+
+#portrait_frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(100vw, calc(100dvh * 9 / 16));
+  height: min(100dvh, calc(100vw * 16 / 9));
+  aspect-ratio: 9 / 16;
+  transform: translate(-50%, -50%);
+}
+
+#content_layer,
+#ui_layer {
+  position: absolute;
+}
+
+#content_layer {
+  inset: 0;
 }
 
 #ui_layer {
-  position: fixed;
   inset: var(--ui-margin-y, 20px) var(--ui-margin-x, 20px);
   pointer-events: none;
 }

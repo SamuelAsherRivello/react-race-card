@@ -30,6 +30,9 @@ test("documents the plain safe-area template", async () => {
   if (!page.includes('id="content_layer"')) {
     throw new Error("The page needs a dedicated application content layer.");
   }
+  if (!page.includes('id="portrait_frame"')) {
+    throw new Error("The application layers must share a portrait frame.");
+  }
   if (!page.includes('id="ui_layer"')) {
     throw new Error("The page needs a separate HTML UI layer.");
   }
@@ -42,14 +45,23 @@ test("documents the plain safe-area template", async () => {
   if (!app.includes("--ui-margin-x") || !app.includes("--ui-margin-y")) {
     throw new Error("The UI margin must use separate percentage values for horizontal and vertical sides.");
   }
-  if (!app.includes("window.innerWidth") || !app.includes("window.innerHeight")) {
-    throw new Error("The UI margin percentages must be calculated from the viewport dimensions.");
+  if (!app.includes("portraitFrame.clientWidth") || !app.includes("portraitFrame.clientHeight")) {
+    throw new Error("The UI margin percentages must be calculated from the portrait frame dimensions.");
   }
   if (!app.includes('window.addEventListener("resize", syncUiMargin)')) {
     throw new Error("The UI margin percentages must stay current when the viewport resizes.");
   }
   if (!styles.includes("inset: var(--ui-margin-y, 20px) var(--ui-margin-x, 20px)")) {
     throw new Error("The page must apply percentage-based UI margins with a 20px fallback.");
+  }
+  if (!styles.includes("#portrait_frame {") || !styles.includes("aspect-ratio: 9 / 16;")) {
+    throw new Error("The application frame must retain a 9:16 portrait aspect ratio.");
+  }
+  if (!styles.includes("width: min(100vw, calc(100dvh * 9 / 16));") || !styles.includes("height: min(100dvh, calc(100vw * 16 / 9));")) {
+    throw new Error("The portrait frame must fit its 9:16 bounds within every viewport.");
+  }
+  if (!styles.includes("left: 50%;") || !styles.includes("top: 50%;")) {
+    throw new Error("The portrait frame must stay centered in the viewport.");
   }
   if (!styles.includes(".corner {")) {
     throw new Error("The page must define a reusable corner style.");
